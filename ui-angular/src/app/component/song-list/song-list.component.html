@@ -1,0 +1,79 @@
+<div class='card'>
+    <div class='card-header'>
+        {{pageTitle}}
+    </div>
+    <div class='card-body'>
+        <div class="row">
+            <div class="col-3">
+                <input [(ngModel)]="listFilter" type="text" class="form-control" id="filterInput"
+                       placeholder="Type to filter">
+            </div>
+            <div class="col">
+                <div *ngIf='listFilter' class="form-text text-muted">Filtered by: {{listFilter}}</div>
+            </div>
+        </div>
+        <div class='table-responsive'>
+            <table class='table  table-nonfluid'  *ngIf='songs && songs.length'>
+                <thead>
+                <tr>
+                    <th>
+                        <button class='btn btn-primary'
+                                (click)='toggleImage()'>
+                            {{showImage ? 'Hide&nbsp;' : 'Show'}} Image
+                        </button>
+                    </th>
+                    <th style="color:firebrick">Title</th>
+                    <th>Artist</th>
+                    <th>Genre</th>
+                    <th>Album</th>
+                    <th>Release Date</th>
+                    <th>Rating</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor='let song of filteredSongs'>
+                    <td>
+                        <img *ngIf='showImage'
+                             [src]='song.image'
+                             [title]='song.title'
+                             [style.width.px]='imageWidth'
+                             [style.margin.px]='imageMargin'>
+                    </td>
+                    <td>{{ song.title }}</td>
+                    <td>{{ song.artist }}</td>
+                    <td>{{ song.genre | lowercase }}</td>
+                    <td>{{ song.album }}</td>
+                    <td>{{ song.releaseDate }}</td>
+
+                    <!--
+                                        <td>{{ song. | currency:'USD':'symbol':'1.2-2' }}</td>
+                    -->
+
+
+                    <!--We are listening for the ratingClicked event raised from the thumb component.
+                    When that event triggers, we want to run the onRatingClicked() method with $event as the payload.
+                    -->
+
+
+                    <td>
+                        <song-thumb *ngIf="song.thumbRating"  [ratingNumber]="song.thumbRating"
+
+                                    (ratingClicked)="onRatingClicked($event)">
+
+                        </song-thumb>
+                    </td>
+
+                    <td >
+                        <button (click)="deleteSong(song.id)" class="btn btn-danger">Delete</button>
+                        <button (click)="updateSong(song.id)" class="btn btn-info" style="margin: 5px">Update</button>
+                        <button (click)="songDetails(song.id)" class="btn btn-info" style="margin: 5px">
+                            Details
+                        </button>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

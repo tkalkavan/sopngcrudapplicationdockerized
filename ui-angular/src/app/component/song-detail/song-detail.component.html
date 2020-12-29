@@ -1,0 +1,19 @@
+<h2>Song Details:</h2>
+
+<hr/>
+<div *ngIf="song">
+    <div>
+        <label><b>Title:</b></label> {{song.title}}
+    </div>
+    <div>
+        <label><b>Album: </b></label> {{song.album}}
+    </div>
+    <div>
+        <label><b>Genre: </b></label> {{song.genre}}
+    </div>
+</div>
+
+<br>
+<br>
+<button (click)="getSongList()" class="btn btn-primary">Back to song list</button><br>
+

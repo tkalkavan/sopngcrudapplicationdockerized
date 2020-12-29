@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  song_database:
+    container_name: song_database
+    image: mongo:latest
+    ports:
+      - 27017:27017
+
+  application:
+    container_name: song-app-container
+    image: song-app-container
+    links:
+      - song_database
+    depends_on: # Mongodb,song_database,will be started before the  song-app-container which is our main Song application
+      - song_database
+    ports:
+      - "8000:8080"
+  #Defining image for Mongo db, which is under ui-angular folder
+  angular-service:
+    image: angular-service
+    build:
+      context: ./ui-angular
+      dockerfile: ./Dockerfile.angular
+    ports:
+      - 4200:4200

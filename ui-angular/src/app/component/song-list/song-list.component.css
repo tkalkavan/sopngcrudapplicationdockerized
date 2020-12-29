@@ -1,0 +1,5 @@
+td > * {
+    vertical-align : middle;
+    margin:auto;
+    display:block;
+}

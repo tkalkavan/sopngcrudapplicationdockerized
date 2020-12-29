@@ -1,0 +1,16 @@
+
+.crop {
+    overflow: hidden;
+}
+
+div {
+    cursor: pointer;
+}
+
+span {
+    margin: 2px;
+}
+
+.thumb-container {
+    width: 100px;
+}

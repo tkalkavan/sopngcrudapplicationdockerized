@@ -1,0 +1,42 @@
+<h3>Create Song</h3>
+<div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="song.title" name="title">
+        </div>
+
+        <div class="form-group">
+            <label>Album</label>
+            <input type="text" class="form-control" id="surname" required [(ngModel)]="song.album"
+                   name="surname">
+        </div>
+
+        <div class="form-group">
+            <label>Genre</label>
+            <input type="text" class="form-control" id="genre" required [(ngModel)]="song.genre" name="grade">
+        </div>
+
+        <div class="form-group">
+            <label>Artist</label>
+            <input type="text" class="form-control" id="Artist" required [(ngModel)]="song.artist" name="Artist">
+        </div>
+
+        <div class="form-group">
+            <label>Rating</label>
+            <input type="text" class="form-control" id="rating" required [(ngModel)]="song.thumbRating" name="thumbRating">
+        </div>
+
+        <div class="form-group">
+            <label>Image url</label>
+            <input type="text" class="form-control" id="image" required [(ngModel)]="song.image" name="image">
+        </div>
+
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h4>Saved successfully!</h4>
+    <button class="btn btn-success" (click)="addSong()">Add</button>
+</div>

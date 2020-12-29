@@ -1,0 +1,40 @@
+<h3>Update song information</h3>
+<div style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Fitle</label>
+
+            <input type="text" class="form-control" id="name" required [(ngModel)]="song.title" name="name">
+        </div>
+
+        <div class="form-group">
+            <label>Album</label>
+            <input type="text" class="form-control" id="surname" required [(ngModel)]="song.album" name="album">
+        </div>
+
+        <div class="form-group">
+            <label>Genre</label>
+            <input type="text" class="form-control" id="grade" required [(ngModel)]="song.genre" name="genre">
+        </div>
+
+        <div class="form-group">
+            <label>Artist</label>
+            <input type="text" class="form-control" id="artist" required [(ngModel)]="song.artist" name="artist">
+        </div>
+
+        <div class="form-group">
+            <label>Rating</label>
+            <input type="text" class="form-control" id="thumbRating" required [(ngModel)]="song.thumbRating" name="thumbRating">
+        </div>
+
+
+
+        <div class="form-group">
+            <label>Image</label>
+            <input type="text" class="form-control" id="image" required [(ngModel)]="song.image" name="image">
+        </div>
+
+
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
